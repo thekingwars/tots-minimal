@@ -30,7 +30,10 @@ class ClientService {
     final List<Client> clients =
         data.map((model) => Client.fromJson(model)).toList();
 
-    return clients;
+    final List<Client> sortedClients = clients
+      ..sort((a, b) => b.createdAt!.compareTo(a.createdAt!));
+
+    return sortedClients;
   }
 
   Future<void> createClient(Client client) async {
