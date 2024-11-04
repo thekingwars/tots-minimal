@@ -41,8 +41,8 @@ class ClientSearchDelegate extends SearchDelegate<Client?> {
   @override
   Widget buildResults(BuildContext context) {
     final results = viewModel.searchClients.where((client) {
-      return client.firstname.toLowerCase().contains(query.toLowerCase()) ||
-          client.email.toLowerCase().contains(query.toLowerCase());
+      return client.firstname!.toLowerCase().contains(query.toLowerCase()) ||
+          client.email!.toLowerCase().contains(query.toLowerCase());
     }).toList();
 
     return ListView.builder(
@@ -64,8 +64,8 @@ class ClientSearchDelegate extends SearchDelegate<Client?> {
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestions = viewModel.searchClients.where((client) {
-      return client.firstname.toLowerCase().contains(query.toLowerCase()) ||
-          client.email.toLowerCase().contains(query.toLowerCase());
+      return client.firstname!.toLowerCase().contains(query.toLowerCase()) ||
+          client.email!.toLowerCase().contains(query.toLowerCase());
     }).toList();
 
     return ListView.builder(

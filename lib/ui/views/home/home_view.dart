@@ -57,7 +57,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                 onPressed: () {
                                   viewModel.logout();
                                 },
-                                child: const Text('Cerrar Session'),
+                                child: const Text('Logout'),
                               ),
                             ),
                           ],
@@ -75,53 +75,48 @@ class HomeView extends StackedView<HomeViewModel> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(
-                              width: 235,
-                              height: 45,
-                              child: SizedBox(
-                                width: 217,
-                                child: TextField(
-                                  readOnly: true,
-                                  onTap: () {
-                                    showSearch(
-                                      context: context,
-                                      delegate: ClientSearchDelegate(
-                                        viewModel,
-                                      ),
-                                    );
-                                  },
-                                  textAlignVertical: TextAlignVertical.bottom,
-                                  style: const TextStyle(
+                            Expanded(
+                              flex: 2,
+                              child: TextField(
+                                readOnly: true,
+                                onTap: () {
+                                  showSearch(
+                                    context: context,
+                                    delegate: ClientSearchDelegate(
+                                      viewModel,
+                                    ),
+                                  );
+                                },
+                                textAlignVertical: TextAlignVertical.center,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                ),
+                                onTapOutside: (event) =>
+                                    FocusScope.of(context).unfocus(),
+                                decoration: InputDecoration(
+                                  prefixIcon: const Icon(
+                                    size: 20,
+                                    Icons.search,
+                                    color: Color(0xFFC4C4C4),
+                                  ),
+                                  hintText: 'Search...',
+                                  hintStyle: const TextStyle(
                                     fontSize: 13,
                                   ),
-                                  onTapOutside: (event) =>
-                                      FocusScope.of(context).unfocus(),
-                                  decoration: InputDecoration(
-                                    prefixIcon: const Icon(
-                                      size: 20,
-                                      Icons.search,
-                                      color: Color(0xFFC4C4C4),
-                                    ),
-                                    hintText: 'Search...',
-                                    hintStyle: const TextStyle(
-                                      fontSize: 13,
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(50),
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: 100,
-                              height: 35,
+                            horizontalSpaceSmall,
+                            Expanded(
                               child: FilledButton(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: kcDarkGreyColor,

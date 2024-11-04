@@ -69,11 +69,11 @@ class HomeViewModel extends BaseViewModel {
     );
 
     if (confirm!.confirmed && !isFromSearch) {
-      await _clientService.deleteClient(client.id);
+      await _clientService.deleteClient(client.id!);
 
       await getClients();
     } else if (confirm.confirmed && isFromSearch) {
-      await _clientService.deleteClient(client.id);
+      await _clientService.deleteClient(client.id!);
 
       _allClients.remove(client);
       _clients.remove(client);

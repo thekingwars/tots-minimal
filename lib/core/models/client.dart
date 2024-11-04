@@ -1,23 +1,23 @@
 class Client {
-  final int id;
-  final String firstname;
-  final String lastname;
-  final String email;
+  final int? id;
+  final String? firstname;
+  final String? lastname;
+  final String? email;
   final String? address;
   final String? photo;
   final String? caption;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final int userId;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
+  final int? userId;
 
   Client({
-    required this.id,
-    required this.firstname,
-    required this.lastname,
-    required this.email,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.userId,
+    this.id,
+    this.firstname,
+    this.lastname,
+    this.email,
+    this.createdAt,
+    this.updatedAt,
+    this.userId,
     this.address,
     this.photo,
     this.caption,
@@ -25,15 +25,17 @@ class Client {
 
   factory Client.fromJson(Map<String, dynamic> json) => Client(
         id: json["id"] ?? 0,
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        email: json["email"],
+        firstname: json["firstname"] ?? 'Jhon',
+        lastname: json["lastname"] ?? 'Doe',
+        email: json["email"] ?? 'alguiencoloconull@gmail.com',
         address: json["address"] ?? '',
         photo: json["photo"] ?? '',
         caption: json["caption"] ?? '',
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
-        userId: json["user_id"],
+        createdAt:
+            DateTime.parse(json["created_at"] ?? DateTime.now().toString()),
+        updatedAt:
+            DateTime.parse(json["updated_at"] ?? DateTime.now().toString()),
+        userId: json["user_id"] ?? 0,
       );
 
   Map<String, dynamic> toJson() => {
@@ -42,7 +44,7 @@ class Client {
         "lastname": lastname,
         "email": email,
         "photo": photo,
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
       };
 }

@@ -105,7 +105,7 @@ class UpsetClientViewModel extends FormViewModel {
     formValueMap = {
       ...formValueMap,
       'id': oldClient.id,
-      'created_at': oldClient.createdAt.toIso8601String(),
+      'created_at': oldClient.createdAt!.toIso8601String(),
       'updated_at': DateTime.now().toIso8601String(),
       'user_id': oldClient.userId,
     };

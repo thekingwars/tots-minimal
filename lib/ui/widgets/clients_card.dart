@@ -35,7 +35,7 @@ class ClientsCard extends StatelessWidget {
               visible: client.photo != null && client.photo!.isNotEmpty,
               replacement: CircleAvatar(
                 child: Text(
-                  client.firstname[0],
+                  client.firstname![0],
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
@@ -53,7 +53,7 @@ class ClientsCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    client.firstname,
+                    client.firstname!,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
@@ -61,7 +61,7 @@ class ClientsCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    client.email,
+                    client.email!,
                     style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 14.0,
