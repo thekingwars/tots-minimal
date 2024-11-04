@@ -142,19 +142,17 @@ class UpsetClientViewModel extends FormViewModel {
   }
 
   bool validateForm() {
-    if (emailValue!.isEmpty ||
-        firstnameValue!.isEmpty ||
-        lastnameValue!.isEmpty) {
+    if (!isFormValid) {
       _dialogService.showCustomDialog(
         variant: DialogType.error,
         title: 'Error',
-        description: 'Todos los campos son requeridos',
+        description: 'Error en los campos del formulario',
       );
 
-      return false;
+      return isFormValid;
     }
 
-    return true;
+    return isFormValid;
   }
 
   Future<void> selectImage() async {
